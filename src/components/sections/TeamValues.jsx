@@ -183,7 +183,7 @@ export default function TeamValues() {
                 >
                   <div className="relative h-full rounded-2xl border border-primary-200 bg-white/80 p-6 backdrop-blur-sm transition-all duration-500 hover:bg-white dark:border-white/20 dark:bg-white/10 dark:hover:bg-white/15">
                     {/* Icon */}
-                    <div className="mb-6 flex justify-center">
+                    <div className="mb-6 flex ">
                       <div
                         className={`h-14 w-14 rounded-xl bg-gradient-to-r ${value.color} flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:scale-105`}
                       >

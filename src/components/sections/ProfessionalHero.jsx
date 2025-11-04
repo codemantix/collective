@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   CodeBracketIcon,
@@ -19,6 +19,12 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
+
+// Check for reduced motion preference
+const prefersReducedMotion = () => {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+};
 
 // Professional service highlights for Codemantix Collective - Core 4 Services
 const techServices = [
@@ -66,9 +72,12 @@ const trustIndicators = [
 export default function ProfessionalHero() {
   const [currentService, setCurrentService] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(true);
   const { elementRef, isVisible } = useIntersectionObserver();
 
+  // Check for reduced motion preference on mount
   useEffect(() => {
+    setShouldAnimate(!prefersReducedMotion());
     setIsLoaded(true);
   }, []);
 
@@ -105,6 +114,31 @@ export default function ProfessionalHero() {
     },
   };
 
+  // Memoize animation configs based on reduced motion preference
+  const getOrbAnimation = useMemo(
+    () => ({
+      animate:
+        shouldAnimate && isVisible
+          ? {
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }
+          : {},
+      transition: shouldAnimate
+        ? { duration: 8, repeat: Infinity, ease: "easeInOut" }
+        : {},
+    }),
+    [shouldAnimate, isVisible]
+  );
+
+  const getParticleAnimation = useMemo(
+    () => ({
+      animate: shouldAnimate && isVisible ? { y: [0, -50, 0], opacity: [0, 0.6, 0], scale: [0, 1, 0] } : {},
+      transition: shouldAnimate ? { duration: 6, repeat: Infinity, ease: "easeInOut" } : {},
+    }),
+    [shouldAnimate, isVisible]
+  );
+
   return (
     <section
       ref={elementRef}
@@ -126,53 +160,31 @@ export default function ProfessionalHero() {
 
         {/* Optimized Floating Orbs - Only animate when visible */}
         <motion.div
-          animate={
-            isVisible
-              ? {
-                scale: [1, 1.1, 1],
-                opacity: [0.3, 0.5, 0.3],
-              }
-              : {}
-          }
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          {...getOrbAnimation}
           className="absolute -right-48 -top-48 h-96 w-96 rounded-full bg-gradient-to-br from-primary-400/15 to-accent-400/20 blur-3xl"
         />
         <motion.div
           animate={
-            isVisible
+            shouldAnimate && isVisible
               ? {
                 scale: [1.1, 0.9, 1.1],
                 opacity: [0.2, 0.4, 0.2],
               }
               : {}
           }
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
+          transition={shouldAnimate ? { duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 } : {}}
           className="absolute -bottom-48 -left-48 h-[32rem] w-[32rem] rounded-full bg-gradient-to-br from-secondary-400/10 to-accent-400/15 blur-3xl"
         />
 
-        {/* Optimized Floating Particles - Only animate when visible */}
-        {isVisible &&
-          [...Array(6)].map((_, i) => (
+        {/* Optimized Floating Particles - Only animate when visible - REDUCED FROM 6 TO 2 */}
+        {shouldAnimate &&
+          isVisible &&
+          [...Array(2)].map((_, i) => (
             <motion.div
               key={i}
-              animate={{
-                y: [0, -50, 0],
-                opacity: [0, 0.6, 0],
-                scale: [0, 1, 0],
-              }}
+              {...getParticleAnimation}
               transition={{
-                duration: 6 + i * 0.8,
-                repeat: Infinity,
-                ease: "easeInOut",
+                ...getParticleAnimation.transition,
                 delay: i * 0.5,
               }}
               className="absolute h-1 w-1 rounded-full bg-gradient-to-r from-primary-400 to-accent-400"
@@ -195,7 +207,7 @@ export default function ProfessionalHero() {
           animate="visible"
         >
           {/* Content Section */}
-          <div className="space-y-8 pt-20 text-center lg:pt-0 lg:text-left">
+          <div className="space-y-8 pt-24 mobile:pt-12 text-center  lg:text-left">
             {/* Enhanced Trust Badge */}
             <motion.div
               variants={itemVariants}
@@ -206,8 +218,8 @@ export default function ProfessionalHero() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-400/20 to-accent-400/20 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100" />
 
               <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                animate={shouldAnimate ? { rotate: [0, 360] } : {}}
+                transition={shouldAnimate ? { duration: 8, repeat: Infinity, ease: "linear" } : {}}
                 className="relative flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-accent-500 to-secondary-500"
               >
                 <CheckCircleIcon className="h-4 w-4 text-white" />
@@ -218,16 +230,10 @@ export default function ProfessionalHero() {
 
               {/* Sparkle animation */}
               <motion.div
-                animate={{
-                  scale: [0, 1, 0],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
+                animate={shouldAnimate ? { scale: [0, 1, 0], rotate: [0, 180, 360] } : {}}
+                transition={
+                  shouldAnimate ? { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 } : {}
+                }
                 className="absolute -right-1 -top-1"
               >
                 <SparklesIcon className="h-3 w-3 text-accent-500" />
@@ -243,38 +249,42 @@ export default function ProfessionalHero() {
               >
                 <motion.span
                   className="block text-gray-900 dark:text-gray-100"
-
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
                   Digital Solutions That
                 </motion.span>
                 <motion.span
                   className="relative block bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-500 bg-clip-text text-transparent"
-
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   Drive Success
-                  {/* Text glow effect */}
-                  <motion.div
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0 bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-500 bg-clip-text text-transparent blur-sm"
-                  >
-                    Drive Success
-                  </motion.div>
+                  {/* Text glow effect - DISABLED for performance */}
+                  {shouldAnimate && (
+                    <motion.div
+                      animate={{ opacity: [0.5, 1, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      className="absolute inset-0 bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-500 bg-clip-text text-transparent blur-sm"
+                    >
+                      Drive Success
+                    </motion.div>
+                  )}
                 </motion.span>
 
                 {/* Floating accent elements */}
                 <motion.div
-                  animate={{
-                    rotate: [0, 360],
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                  animate={
+                    shouldAnimate
+                      ? {
+                        rotate: [0, 360],
+                        scale: [1, 1.2, 1],
+                      }
+                      : {}
+                  }
+                  transition={shouldAnimate ? { duration: 6, repeat: Infinity, ease: "easeInOut" } : {}}
                   className="absolute -right-8 -top-4 hidden lg:block"
                 >
                   <RocketLaunchIcon className="h-8 w-8 text-accent-500/60" />
@@ -282,21 +292,26 @@ export default function ProfessionalHero() {
               </motion.h1>
 
               <motion.p
-                className="max-w-2xl text-xl mobile:text-sm leading-relaxed text-gray-600 dark:text-gray-300 lg:text-xl"
-
+                className="max-w-2xl text-[16px] mobile:text-sm leading-relaxed text-gray-600 dark:text-gray-300 "
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 We transform businesses through{" "}
                 <motion.span
                   className="font-semibold text-primary-700 dark:text-accent-400"
-                  animate={{
-                    textShadow: [
-                      "0 0 0px rgba(16,185,129,0)",
-                      "0 0 20px rgba(16,185,129,0.3)",
-                      "0 0 0px rgba(16,185,129,0)",
-                    ],
-                  }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  animate={
+                    shouldAnimate
+                      ? {
+                        textShadow: [
+                          "0 0 0px rgba(16,185,129,0)",
+                          "0 0 20px rgba(16,185,129,0.3)",
+                          "0 0 0px rgba(16,185,129,0)",
+                        ],
+                      }
+                      : {}
+                  }
+                  transition={shouldAnimate ? { duration: 3, repeat: Infinity, ease: "easeInOut" } : {}}
                 >
                   innovative technology solutions
                 </motion.span>
@@ -308,18 +323,22 @@ export default function ProfessionalHero() {
             {/* Enhanced Service Highlight */}
             <motion.div
               variants={itemVariants}
-              className="group relative overflow-hidden rounded-3xl border border-primary-200/30 bg-gradient-to-br from-white/80 via-white/60 to-primary-50/40 p-8 shadow-2xl backdrop-blur-md dark:border-primary-700/30 dark:from-slate-800/80 dark:via-slate-800/60 dark:to-primary-900/40"
+              className="group relative overflow-hidden rounded-3xl border border-primary-200/30 bg-gradient-to-br from-white/80 via-white/60 to-primary-50/40 p-4 shadow-2xl backdrop-blur-md dark:border-primary-700/30 dark:from-slate-800/80 dark:via-slate-800/60 dark:to-primary-900/40"
             >
               {/* Animated background glow */}
               <motion.div
-                animate={{
-                  background: [
-                    "radial-gradient(circle at 0% 0%, rgba(30,58,138,0.1) 0%, transparent 50%)",
-                    "radial-gradient(circle at 100% 100%, rgba(16,185,129,0.1) 0%, transparent 50%)",
-                    "radial-gradient(circle at 0% 0%, rgba(30,58,138,0.1) 0%, transparent 50%)",
-                  ],
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                animate={
+                  shouldAnimate
+                    ? {
+                      background: [
+                        "radial-gradient(circle at 0% 0%, rgba(30,58,138,0.1) 0%, transparent 50%)",
+                        "radial-gradient(circle at 100% 100%, rgba(16,185,129,0.1) 0%, transparent 50%)",
+                        "radial-gradient(circle at 0% 0%, rgba(30,58,138,0.1) 0%, transparent 50%)",
+                      ],
+                    }
+                    : {}
+                }
+                transition={shouldAnimate ? { duration: 4, repeat: Infinity, ease: "easeInOut" } : {}}
                 className="absolute inset-0"
               />
 
@@ -335,15 +354,15 @@ export default function ProfessionalHero() {
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent" />
 
                   <motion.div
-                    animate={{
-                      rotate: [0, 5, -5, 0],
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
+                    animate={
+                      shouldAnimate
+                        ? {
+                          rotate: [0, 5, -5, 0],
+                          scale: [1, 1.1, 1],
+                        }
+                        : {}
+                    }
+                    transition={shouldAnimate ? { duration: 3, repeat: Infinity, ease: "easeInOut" } : {}}
                   >
                     {React.createElement(techServices[currentService].icon, {
                       className: "relative w-8 h-8 text-white",
@@ -373,14 +392,14 @@ export default function ProfessionalHero() {
                       <h3 className="mb-3 text-2xl font-bold text-gray-900 dark:text-gray-100">
                         {techServices[currentService].title}
                         <motion.span
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 0.3, repeat: Infinity }}
+                          animate={shouldAnimate ? { opacity: [0.5, 1, 0.5] } : {}}
+                          transition={shouldAnimate ? { duration: 0.3, repeat: Infinity } : {}}
                           className="ml-2 text-accent-500"
                         >
                           <BoltIcon className="inline h-5 w-5" />
                         </motion.span>
                       </h3>
-                      <p className="leading-relaxed mobile:text-sm text-gray-600 dark:text-gray-300">
+                      <p className="leading-relaxed text-sm mobile:text-sm text-gray-600 dark:text-gray-300">
                         {techServices[currentService].description}
                       </p>
                     </motion.div>
@@ -393,11 +412,18 @@ export default function ProfessionalHero() {
                 {techServices.map((_, index) => (
                   <motion.div
                     key={index}
-                    animate={{
-                      scale: currentService === index ? 1.2 : 1,
-                      backgroundColor:
-                        currentService === index ? "rgba(16,185,129,1)" : "rgba(156,163,175,0.4)",
-                    }}
+                    animate={
+                      shouldAnimate
+                        ? {
+                          scale: currentService === index ? 1.2 : 1,
+                          backgroundColor:
+                            currentService === index ? "rgba(16,185,129,1)" : "rgba(156,163,175,0.4)",
+                        }
+                        : {
+                          backgroundColor:
+                            currentService === index ? "rgba(16,185,129,1)" : "rgba(156,163,175,0.4)",
+                        }
+                    }
                     className="h-2 w-8 rounded-full transition-colors duration-300"
                   />
                 ))}
@@ -481,39 +507,55 @@ export default function ProfessionalHero() {
                       ease: [0.16, 1, 0.3, 1],
                     }}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className="hover:shadow-3xl group relative overflow-hidden rounded-3xl border border-primary-200/30 bg-gradient-to-br from-white/80 to-primary-50/40 p-4 text-center shadow-2xl backdrop-blur-md transition-all duration-300 dark:border-primary-700/30 dark:from-slate-800/80 dark:to-primary-900/40 md:p-8"
+                    className="hover:shadow-3xl group relative overflow-hidden rounded-3xl border border-primary-200/30 bg-gradient-to-br from-white/80 to-primary-50/40 p-4 text-center shadow-2xl backdrop-blur-md transition-all duration-300 dark:border-primary-700/30 dark:from-slate-800/80 dark:to-primary-900/40 md:p-4"
                   >
                     {/* Background glow effect */}
                     <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary-400/10 to-accent-400/10 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100" />
 
                     {/* Icon with enhanced styling */}
                     <motion.div
-                      animate={{
-                        rotate: [0, 10, -10, 0],
-                        scale: [1, 1.1, 1],
-                      }}
-                      transition={{
-                        duration: 4 + index * 0.5,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: index * 0.2,
-                      }}
+                      animate={
+                        shouldAnimate
+                          ? {
+                            rotate: [0, 10, -10, 0],
+                            scale: [1, 1.1, 1],
+                          }
+                          : {}
+                      }
+                      transition={
+                        shouldAnimate
+                          ? {
+                            duration: 4 + index * 0.5,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: index * 0.2,
+                          }
+                          : {}
+                      }
                       className="relative mx-auto mb-4 flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-primary-500 via-accent-500 to-secondary-500 shadow-xl md:h-16 md:w-16 md:rounded-2xl"
                     >
                       <Icon className="h-4 w-4 text-white md:h-8 md:w-8" />
 
                       {/* Sparkle effect */}
                       <motion.div
-                        animate={{
-                          scale: [0, 1, 0],
-                          rotate: [0, 180, 360],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: 1 + index * 0.3,
-                        }}
+                        animate={
+                          shouldAnimate
+                            ? {
+                              scale: [0, 1, 0],
+                              rotate: [0, 180, 360],
+                            }
+                            : {}
+                        }
+                        transition={
+                          shouldAnimate
+                            ? {
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                              delay: 1 + index * 0.3,
+                            }
+                            : {}
+                        }
                         className="absolute -right-1 -top-1"
                       >
                         <SparklesIcon className="h-3 w-3 text-accent-400" />
@@ -523,19 +565,27 @@ export default function ProfessionalHero() {
                     {/* Enhanced stat display */}
                     <motion.div
                       className="relative mb-2 text-2xl font-bold text-gray-900 dark:text-gray-100 md:text-4xl"
-                      animate={{
-                        textShadow: [
-                          "0 0 0px rgba(16,185,129,0)",
-                          "0 0 20px rgba(16,185,129,0.3)",
-                          "0 0 0px rgba(16,185,129,0)",
-                        ],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: index * 0.5,
-                      }}
+                      animate={
+                        shouldAnimate
+                          ? {
+                            textShadow: [
+                              "0 0 0px rgba(16,185,129,0)",
+                              "0 0 20px rgba(16,185,129,0.3)",
+                              "0 0 0px rgba(16,185,129,0)",
+                            ],
+                          }
+                          : {}
+                      }
+                      transition={
+                        shouldAnimate
+                          ? {
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: index * 0.5,
+                          }
+                          : {}
+                      }
                     >
                       {stat.value}
                     </motion.div>
@@ -548,44 +598,46 @@ export default function ProfessionalHero() {
               })}
             </motion.div>
 
-            {/* Enhanced Floating Tech Icons - All 4 Core Services */}
+            {/* Enhanced Floating Tech Icons - All 4 Core Services - DISABLED on mobile */}
             <motion.div
               variants={itemVariants}
-              className="relative mx-auto hidden h-80 w-full max-w-2xl md:block"
+              className="relative mx-auto hidden h-80 w-full max-w-2xl lg:block"
             >
               <div className="absolute inset-0">
-                {/* Central connection lines */}
-                <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100">
-                  <motion.path
-                    d="M20,20 Q50,10 80,30 Q90,50 70,80 Q50,90 30,70 Q10,50 20,20"
-                    fill="none"
-                    stroke="url(#gradient)"
-                    strokeWidth="0.2"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 0.3 }}
-                    transition={{ duration: 3, ease: "easeInOut" }}
-                  />
-                  <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="rgba(30,58,138,0.6)" />
-                      <stop offset="50%" stopColor="rgba(16,185,129,0.6)" />
-                      <stop offset="100%" stopColor="rgba(249,115,22,0.6)" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+                {/* Central connection lines - DISABLED for performance */}
+                {shouldAnimate && (
+                  <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100">
+                    <motion.path
+                      d="M20,20 Q50,10 80,30 Q90,50 70,80 Q50,90 30,70 Q10,50 20,20"
+                      fill="none"
+                      stroke="url(#gradient)"
+                      strokeWidth="0.2"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: 0.3 }}
+                      transition={{ duration: 3, ease: "easeInOut" }}
+                    />
+                    <defs>
+                      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="rgba(30,58,138,0.6)" />
+                        <stop offset="50%" stopColor="rgba(16,185,129,0.6)" />
+                        <stop offset="100%" stopColor="rgba(249,115,22,0.6)" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                )}
 
                 {/* Web Development Icon */}
                 <motion.div
-                  animate={{
-                    y: [-25, 25, -25],
-                    rotate: [0, 10, 0],
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                  animate={
+                    shouldAnimate
+                      ? {
+                        y: [-25, 25, -25],
+                        rotate: [0, 10, 0],
+                        scale: [1, 1.1, 1],
+                      }
+                      : {}
+                  }
+                  transition={shouldAnimate ? { duration: 6, repeat: Infinity, ease: "easeInOut" } : {}}
                   whileHover={{ scale: 1.2, rotate: 15 }}
                   className="group absolute left-8 top-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-primary-500 to-primary-600 shadow-2xl"
                 >
@@ -594,15 +646,15 @@ export default function ProfessionalHero() {
 
                   {/* Floating sparkles */}
                   <motion.div
-                    animate={{
-                      rotate: [0, 360],
-                      scale: [0.5, 1, 0.5],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
+                    animate={
+                      shouldAnimate
+                        ? {
+                          rotate: [0, 360],
+                          scale: [0.5, 1, 0.5],
+                        }
+                        : {}
+                    }
+                    transition={shouldAnimate ? { duration: 3, repeat: Infinity, ease: "easeInOut" } : {}}
                     className="absolute -right-2 -top-2"
                   >
                     <SparklesIcon className="h-4 w-4 text-accent-400" />
@@ -611,17 +663,25 @@ export default function ProfessionalHero() {
 
                 {/* Data Analytics Icon */}
                 <motion.div
-                  animate={{
-                    y: [30, -30, 30],
-                    rotate: [0, -8, 0],
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                  }}
+                  animate={
+                    shouldAnimate
+                      ? {
+                        y: [30, -30, 30],
+                        rotate: [0, -8, 0],
+                        scale: [1, 1.05, 1],
+                      }
+                      : {}
+                  }
+                  transition={
+                    shouldAnimate
+                      ? {
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1,
+                      }
+                      : {}
+                  }
                   whileHover={{ scale: 1.15, rotate: -12 }}
                   className="group absolute right-8 top-12 flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-accent-500 to-accent-600 shadow-2xl"
                 >
@@ -629,16 +689,24 @@ export default function ProfessionalHero() {
                   <ChartBarIcon className="relative h-12 w-12 text-white" />
 
                   <motion.div
-                    animate={{
-                      scale: [0, 1, 0],
-                      opacity: [0, 1, 0],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 0.5,
-                    }}
+                    animate={
+                      shouldAnimate
+                        ? {
+                          scale: [0, 1, 0],
+                          opacity: [0, 1, 0],
+                        }
+                        : {}
+                    }
+                    transition={
+                      shouldAnimate
+                        ? {
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: 0.5,
+                        }
+                        : {}
+                    }
                     className="absolute -bottom-2 -left-2"
                   >
                     <BoltIcon className="h-4 w-4 text-secondary-400" />
@@ -647,17 +715,25 @@ export default function ProfessionalHero() {
 
                 {/* UI/UX Design Icon */}
                 <motion.div
-                  animate={{
-                    y: [-20, 20, -20],
-                    rotate: [0, 6, 0],
-                    scale: [1, 1.08, 1],
-                  }}
-                  transition={{
-                    duration: 7,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 2,
-                  }}
+                  animate={
+                    shouldAnimate
+                      ? {
+                        y: [-20, 20, -20],
+                        rotate: [0, 6, 0],
+                        scale: [1, 1.08, 1],
+                      }
+                      : {}
+                  }
+                  transition={
+                    shouldAnimate
+                      ? {
+                        duration: 7,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 2,
+                      }
+                      : {}
+                  }
                   whileHover={{ scale: 1.1, rotate: 10 }}
                   className="group absolute bottom-12 left-12 flex h-18 w-18 items-center justify-center rounded-3xl bg-gradient-to-br from-secondary-500 to-secondary-600 shadow-2xl"
                 >
@@ -665,15 +741,15 @@ export default function ProfessionalHero() {
                   <PaintBrushIcon className="relative h-9 w-9 text-white" />
 
                   <motion.div
-                    animate={{
-                      y: [-3, 3, -3],
-                      opacity: [0.7, 1, 0.7],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
+                    animate={
+                      shouldAnimate
+                        ? {
+                          y: [-3, 3, -3],
+                          opacity: [0.7, 1, 0.7],
+                        }
+                        : {}
+                    }
+                    transition={shouldAnimate ? { duration: 1.5, repeat: Infinity, ease: "easeInOut" } : {}}
                     className="absolute -right-1 -top-1"
                   >
                     <div className="h-2 w-2 rounded-full bg-accent-400" />
@@ -682,17 +758,25 @@ export default function ProfessionalHero() {
 
                 {/* Graphics Design Icon */}
                 <motion.div
-                  animate={{
-                    y: [25, -25, 25],
-                    rotate: [0, -6, 0],
-                    scale: [1, 1.12, 1],
-                  }}
-                  transition={{
-                    duration: 9,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 3,
-                  }}
+                  animate={
+                    shouldAnimate
+                      ? {
+                        y: [25, -25, 25],
+                        rotate: [0, -6, 0],
+                        scale: [1, 1.12, 1],
+                      }
+                      : {}
+                  }
+                  transition={
+                    shouldAnimate
+                      ? {
+                        duration: 9,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 3,
+                      }
+                      : {}
+                  }
                   whileHover={{ scale: 1.18, rotate: -10 }}
                   className="h-18 w-18 group absolute bottom-12 right-32 flex items-center justify-center rounded-3xl bg-gradient-to-br from-primary-600 via-accent-500 to-secondary-500 shadow-2xl"
                 >
@@ -700,27 +784,28 @@ export default function ProfessionalHero() {
                   <SwatchIcon className="relative h-11 w-11 text-white" />
 
                   {/* Multi-colored dots animation */}
-                  {[0, 1, 2].map((i) => (
-                    <motion.div
-                      key={i}
-                      animate={{
-                        scale: [0, 1.5, 0],
-                        opacity: [0, 0.8, 0],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.3,
-                      }}
-                      className={`absolute h-1 w-1 rounded-full ${i === 0
+                  {shouldAnimate &&
+                    [0, 1, 2].map((i) => (
+                      <motion.div
+                        key={i}
+                        animate={{
+                          scale: [0, 1.5, 0],
+                          opacity: [0, 0.8, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: i * 0.3,
+                        }}
+                        className={`absolute h-1 w-1 rounded-full ${i === 0
                           ? "-left-2 top-2 bg-primary-300"
                           : i === 1
                             ? "-top-1 right-1 bg-accent-300"
                             : "-bottom-1 left-1 bg-secondary-300"
-                        }`}
-                    />
-                  ))}
+                          }`}
+                      />
+                    ))}
                 </motion.div>
               </div>
             </motion.div>
