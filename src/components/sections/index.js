@@ -1,0 +1,23 @@
+// Section Components
+export { default as ProfessionalHero } from "./ProfessionalHero.jsx";
+export { default as ProfessionalServices } from "./ProfessionalServices.jsx";
+export { default as ProfessionalWhyChooseUs } from "./ProfessionalWhyChooseUs.jsx";
+export { default as Hero } from "./Hero.jsx";
+export { default as AboutHero } from "./AboutHero.jsx";
+export { default as BrandStory } from "./BrandStory.jsx";
+export { default as ServicesSnapshot } from "./ServicesSnapshot.jsx";
+export { default as ServicesHer } from "./ServicesHer.jsx";
+export { default as WhyChooseUs } from "./WhyChooseUs.jsx";
+export { default as WebDev } from "./WebDev.jsx";
+export { default as UX } from "./UX.jsx";
+export { default as DataAnalysis } from "./DataAnalysis.jsx";
+export { default as Team } from "./Team.jsx";
+export { default as TeamOverview } from "./TeamOverview.jsx";
+export { default as TeamHero } from "./TeamHero.jsx";
+export { default as TeamGrid } from "./TeamGrid.jsx";
+export { default as TeamValues } from "./TeamValues.jsx";
+export { default as MissionAndVision } from "./Mission&Vision.jsx";
+export { default as ProjectHer } from "./ProjectHer.jsx";
+export { default as ProjectsShowcase } from "./ProjectsShowcase.jsx";
+export { default as ProjectCarousel } from "./ProjectCarousel.jsx";
+export { default as ContactHero } from "./ContactHero.jsx";

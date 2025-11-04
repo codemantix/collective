@@ -1,0 +1,28 @@
+# Prettier ignore file
+node_modules/
+.next/
+out/
+build/
+dist/
+coverage/
+.nyc_output/
+.cache/
+
+# Files
+*.min.js
+*.min.css
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Generated files
+public/sitemap.xml
+public/robots.txt
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
