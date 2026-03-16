@@ -5,16 +5,6 @@ const nextConfig = {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
 
-  // Turbopack configuration (moved from experimental.turbo)
-  turbopack: {
-    rules: {
-      "*.svg": {
-        loaders: ["@svgr/webpack"],
-        as: "*.js",
-      },
-    },
-  },
-
   // Image optimization
   images: {
     formats: ["image/avif", "image/webp"],
@@ -84,13 +74,6 @@ const nextConfig = {
         },
       };
     }
-
-    // SVG handling
-    config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ["@svgr/webpack"],
-    });
 
     return config;
   },
