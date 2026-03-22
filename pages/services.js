@@ -2,37 +2,37 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
-const ServicesHero = dynamic(() => import("../components/sections/ServicesHer"), {
+const ServicesHero = dynamic(() => import("@/components/services/Hero"), {
   loading: () => (
     <div className="min-h-screen animate-pulse bg-gradient-to-br from-primary-900 via-primary-800 to-accent-900" />
   ),
 });
 
-const ServicesSnapshot = dynamic(() => import("../components/sections/ServicesSnapshot"), {
+const ServicesSnapshot = dynamic(() => import("@/components/services/Snapshot"), {
   loading: () => (
     <div className="min-h-[60vh] animate-pulse bg-gradient-to-br from-gray-50 via-primary-50/30 to-accent-50/20" />
   ),
 });
 
-const WebDev = dynamic(() => import("../components/sections/WebDev"), {
+const WebDev = dynamic(() => import("@/components/services/WebDev"), {
   loading: () => <div className="min-h-[50vh] animate-pulse bg-white" />,
 });
 
-const UX = dynamic(() => import("../components/sections/UX"), {
+const UX = dynamic(() => import("@/components/services/UX"), {
   loading: () => <div className="min-h-[50vh] animate-pulse bg-gray-50" />,
 });
 
-const DataAnalysis = dynamic(() => import("../components/sections/DataAnalysis"), {
+const DataAnalysis = dynamic(() => import("@/components/services/DataAnalysis"), {
   loading: () => <div className="min-h-[50vh] animate-pulse bg-white" />,
 });
 
-const WhyChooseUs = dynamic(() => import("../components/sections/WhyChooseUs"), {
+const WhyChooseUs = dynamic(() => import("@/components/services/WhyChooseUs"), {
   loading: () => (
     <div className="min-h-[60vh] animate-pulse bg-gradient-to-br from-primary-50 via-accent-50/30 to-secondary-50/20" />
   ),
 });
 
-const CodematixCTA = dynamic(() => import("../components/ui/CodematixCTA"), {
+const CodematixCTA = dynamic(() => import("@/components/shared/ui/CodematixCTA"), {
   loading: () => <div className="min-h-[40vh] animate-pulse bg-primary-900" />,
 });
 

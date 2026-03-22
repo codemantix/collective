@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { BreadcrumbSchema } from "../components/seo/StructuredData";
+import { BreadcrumbSchema } from "@/components/shared/seo/StructuredData";
 
 const searchableContent = [
   {

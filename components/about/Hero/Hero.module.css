@@ -1,0 +1,73 @@
+/* About Hero Section */
+
+.section {
+  @apply relative  overflow-hidden;
+}
+
+.bgImage {
+  @apply absolute inset-0;
+}
+
+.overlay {
+  @apply absolute inset-0;
+}
+
+.container {
+  @apply relative z-10 mx-auto max-w-7xl px-6  py-6 mobile:pt-0;
+}
+
+.badgeRow {
+  @apply mb-6 flex items-center gap-3;
+}
+
+.badge {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-sm;
+}
+
+.badgeDot {
+  @apply h-2 w-2 animate-led-pulse rounded-full bg-orange-400;
+}
+
+.heading {
+  @apply mb-6 text-5xl font-black text-white md:text-6xl lg:text-7xl;
+}
+
+.subtext {
+  @apply mb-8 max-w-2xl text-xl leading-relaxed text-blue-100;
+}
+
+.valuePanel {
+  @apply mb-12 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm;
+}
+
+.valuePanelHeader {
+  @apply mb-4 flex items-center justify-between;
+}
+
+.valuePanelTitle {
+  @apply text-xs font-mono font-bold uppercase tracking-widest text-blue-300;
+}
+
+.valueText {
+  @apply text-2xl font-bold text-white;
+}
+
+.valueDots {
+  @apply mt-4 flex gap-2;
+}
+
+.statsGrid {
+  @apply grid grid-cols-2 gap-4 md:grid-cols-4;
+}
+
+.statCard {
+  @apply rounded-xl border h-full border-white/10 bg-white/5 p-4 text-center backdrop-blur-sm;
+}
+
+.statValue {
+  @apply text-3xl font-black text-white;
+}
+
+.statLabel {
+  @apply text-xs font-bold uppercase tracking-wider text-blue-200;
+}

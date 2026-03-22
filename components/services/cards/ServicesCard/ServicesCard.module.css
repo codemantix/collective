@@ -1,0 +1,42 @@
+/* Services Card */
+
+.card {
+  @apply relative overflow-hidden rounded-2xl border transition-all duration-300;
+}
+
+.cardTop {
+  @apply flex items-start justify-between p-6 pb-4;
+}
+
+.iconBtn {
+  @apply flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300;
+}
+
+.moduleId {
+  @apply text-[10px] font-mono font-bold uppercase tracking-widest opacity-50;
+}
+
+.cardBody {
+  @apply px-6 pb-4;
+}
+
+.cardTitle {
+  @apply mb-2 text-base font-black;
+}
+
+.cardDesc {
+  @apply text-sm leading-relaxed opacity-75;
+}
+
+.cardFooter {
+  @apply flex items-center justify-between border-t px-6 py-4;
+}
+
+.learnMoreLink {
+  @apply inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-300;
+}
+
+/* Screw decorators */
+.screw {
+  @apply absolute h-2.5 w-2.5 rounded-full;
+}

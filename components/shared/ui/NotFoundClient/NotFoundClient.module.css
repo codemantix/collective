@@ -1,0 +1,50 @@
+/* 404 Not Found Page */
+
+.container {
+  @apply relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900;
+}
+
+.orb {
+  @apply absolute rounded-full opacity-20 blur-3xl;
+}
+
+.main {
+  @apply relative z-10 flex min-h-screen items-center justify-center py-8 px-4 sm:px-6 lg:px-8;
+}
+
+.inner {
+  @apply mx-auto max-w-4xl text-center;
+}
+
+.errorCode {
+  font-size: clamp(4rem, 20vw, 20rem);
+  @apply bg-gradient-to-r from-primary-600 via-accent-500 to-secondary-500 bg-clip-text font-bold leading-none text-transparent;
+}
+
+.heading {
+  @apply mb-4 text-2xl font-bold leading-tight text-gray-900 dark:text-white sm:text-3xl md:text-4xl;
+}
+
+.subtext {
+  @apply mx-auto max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg;
+}
+
+.quickLinksGrid {
+  @apply mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4;
+}
+
+.quickLinkCard {
+  @apply flex min-h-[140px] flex-col justify-center rounded-2xl border border-gray-100 bg-white p-4 shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 dark:border-gray-700 dark:bg-gray-800;
+}
+
+.primaryActionsRow {
+  @apply flex flex-col items-center justify-center gap-4 sm:flex-row;
+}
+
+.btnPrimary {
+  @apply inline-flex w-full min-w-[160px] items-center justify-center rounded-xl bg-gradient-to-r from-primary-600 to-accent-500 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 sm:w-auto;
+}
+
+.btnSecondary {
+  @apply inline-flex w-full min-w-[160px] items-center justify-center rounded-xl border border-gray-200 bg-white px-6 py-3 font-semibold text-gray-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 sm:w-auto;
+}

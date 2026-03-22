@@ -1,0 +1,66 @@
+/* Services Section — Home Page */
+
+.section {
+  @apply relative overflow-hidden py-24;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-6;
+}
+
+.header {
+  @apply mb-16 text-center;
+}
+
+.sectionBadge {
+  @apply mb-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.18em];
+}
+
+.sectionTitle {
+  @apply mb-4 text-4xl font-black text-slate-800 dark:text-white md:text-5xl;
+}
+
+.sectionSubtitle {
+  @apply mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300;
+}
+
+.grid {
+  display: grid;
+  @apply gap-8 sm:grid-cols-2;
+}
+
+.card {
+  @apply relative overflow-hidden rounded-3xl p-8 transition-all duration-500;
+}
+
+.cardIconWrap {
+  @apply mb-6 flex h-14 w-14 items-center justify-center rounded-2xl;
+}
+
+.cardBadge {
+  @apply mb-4 flex items-center gap-2;
+}
+
+.moduleId {
+  @apply text-xs font-mono font-bold uppercase tracking-widest opacity-60;
+}
+
+.cardTitle {
+  @apply mb-3 text-xl font-bold;
+}
+
+.cardDescription {
+  @apply mb-6 text-sm leading-relaxed opacity-75;
+}
+
+.featureList {
+  @apply mb-6 space-y-2;
+}
+
+.featureItem {
+  @apply flex items-center gap-2 text-sm;
+}
+
+.cardLink {
+  @apply inline-flex items-center gap-2 text-sm font-bold transition-all duration-300;
+}

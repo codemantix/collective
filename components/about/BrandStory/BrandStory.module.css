@@ -1,0 +1,54 @@
+/* Brand Story Section — About Page */
+
+.section {
+  @apply relative overflow-hidden py-24;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-6;
+}
+
+.header {
+  @apply mb-16 text-center;
+}
+
+.sectionBadge {
+  @apply mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.18em];
+}
+
+.sectionTitle {
+  @apply mb-4 text-4xl font-black text-slate-800 dark:text-white md:text-5xl;
+}
+
+.sectionSubtitle {
+  @apply mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300;
+}
+
+.grid {
+  display: grid;
+  @apply gap-8 md:grid-cols-3;
+}
+
+.card {
+  @apply relative overflow-hidden rounded-3xl border p-8 transition-all duration-500;
+}
+
+.cardIconWrap {
+  @apply mb-6 flex h-16 w-16 items-center justify-center rounded-2xl;
+}
+
+.cardTitle {
+  @apply mb-3 text-xl font-bold text-slate-800 dark:text-white;
+}
+
+.cardDesc {
+  @apply text-sm leading-relaxed text-slate-600 dark:text-slate-300;
+}
+
+.orbLeft {
+  @apply pointer-events-none absolute -bottom-20 -left-20 h-48 w-48 rounded-full opacity-10 blur-3xl;
+}
+
+.orbRight {
+  @apply pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full opacity-10 blur-3xl;
+}

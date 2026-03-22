@@ -1,0 +1,78 @@
+/* Team Grid Section */
+
+.section {
+  @apply relative overflow-hidden py-24;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-6;
+}
+
+.header {
+  @apply mb-12 text-center;
+}
+
+.sectionTitle {
+  @apply mb-4 text-4xl font-black text-slate-800 dark:text-white md:text-5xl;
+}
+
+/* Department filters */
+.filterRow {
+  @apply mb-10 flex flex-wrap justify-center gap-3;
+}
+
+.filterBtn {
+  @apply rounded-xl px-5 py-2.5 text-sm font-bold transition-all duration-300;
+}
+
+.filterBtnActive {
+  @apply text-white;
+}
+
+.filterBtnInactive {
+  @apply bg-gray-100 text-slate-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-slate-300;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  @apply gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+}
+
+/* Member card */
+.memberCard {
+  @apply relative overflow-hidden rounded-3xl border bg-white transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:bg-gray-800;
+}
+
+.memberImageWrap {
+  @apply relative aspect-[3/4] overflow-hidden;
+}
+
+.memberInfo {
+  @apply p-5;
+}
+
+.memberName {
+  @apply text-base font-black text-slate-800 dark:text-white;
+}
+
+.memberRole {
+  @apply text-sm text-slate-500 dark:text-slate-400;
+}
+
+.memberDept {
+  @apply mt-2 inline-flex rounded-full px-3 py-1 text-xs font-bold;
+}
+
+/* Modal */
+.modalBackdrop {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm;
+}
+
+.modal {
+  @apply relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border bg-white p-8 shadow-2xl dark:bg-gray-900;
+}
+
+.modalCloseBtn {
+  @apply absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-xl border bg-gray-100 text-slate-600 transition-all duration-300 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300;
+}

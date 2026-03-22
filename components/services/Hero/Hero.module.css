@@ -1,0 +1,78 @@
+/* Services Hero Section */
+
+.section {
+  @apply relative  overflow-hidden;
+}
+
+.container {
+  @apply relative z-10 mx-auto max-w-7xl px-6;
+}
+
+.inner {
+  @apply grid   gap-16 py-24 pt-6 lg:grid-cols-2;
+}
+
+.leftCol {
+  @apply space-y-8;
+}
+
+.badge {
+  @apply inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-widest;
+}
+
+.badgeDot {
+  @apply h-2 w-2 animate-led-pulse rounded-full bg-orange-500;
+}
+
+.heading {
+  @apply text-4xl font-black leading-tight text-slate-800 md:text-5xl lg:text-6xl;
+}
+
+.subtext {
+  @apply max-w-xl text-base leading-relaxed text-slate-600;
+}
+
+.ctaRow {
+  @apply flex flex-col gap-4 sm:flex-row;
+}
+
+.statsGrid {
+  @apply grid grid-cols-2 gap-4 md:grid-cols-4;
+}
+
+.statCard {
+  @apply rounded-xl border bg-white p-4 text-center shadow-sm;
+}
+
+.statValue {
+  @apply text-2xl font-black text-blue-700;
+}
+
+.statLabel {
+  @apply text-xs font-bold uppercase tracking-wider text-slate-500;
+}
+
+/* Right column — service highlights */
+.rightCol {
+  @apply space-y-4;
+}
+
+.highlightPanel {
+  @apply relative overflow-hidden rounded-2xl border p-6;
+}
+
+.highlightTitle {
+  @apply text-lg font-bold;
+}
+
+.highlightDesc {
+  @apply text-sm leading-relaxed opacity-75;
+}
+
+.benefitsList {
+  @apply space-y-3;
+}
+
+.benefitItem {
+  @apply flex items-start gap-3 rounded-xl border p-4;
+}

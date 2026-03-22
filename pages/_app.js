@@ -3,15 +3,15 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "react-hot-toast";
 import "../styles/globals.css";
-import ProfessionalNavbar from "../components/layout/ProfessionalNavbar.jsx";
-import ProfessionalFooter from "../components/layout/ProfessionalFooter.jsx";
-import { ThemeProvider } from "../components/providers/ThemeProvider.jsx";
-import { ScrollToTop } from "../components/ui";
+import ProfessionalNavbar from "@/components/shared/layout/Navbar";
+import ProfessionalFooter from "@/components/shared/layout/Footer";
+import { ThemeProvider } from "@/components/shared/providers/ThemeProvider";
+import ScrollToTop from "@/components/shared/ui/ScrollToTop";
 import {
   OrganizationSchema,
   WebsiteSchema,
   ServicesSchema,
-} from "../components/seo/StructuredData.jsx";
+} from "@/components/shared/seo/StructuredData";
 
 const inter = Inter({
   subsets: ["latin"],

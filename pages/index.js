@@ -1,28 +1,22 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
-import HeroSkeleton from "../components/ui/HeroSkeleton";
-import PerformanceMonitor from "../components/ui/PerformanceMonitor";
+import HeroSkeleton from "@/components/shared/ui/HeroSkeleton";
+import PerformanceMonitor from "@/components/shared/ui/PerformanceMonitor";
 
-const ProfessionalHero = dynamic(() => import("../components/sections/ProfessionalHero.jsx"), {
+const ProfessionalHero = dynamic(() => import("@/components/home/Hero"), {
   loading: () => <HeroSkeleton />,
 });
 
-const ProfessionalServices = dynamic(
-  () => import("../components/sections/ProfessionalServices.jsx"),
-  {
-    loading: () => <div className="min-h-[50vh] animate-pulse bg-white dark:bg-gray-900" />,
-  }
-);
+const ProfessionalServices = dynamic(() => import("@/components/home/Services"), {
+  loading: () => <div className="min-h-[50vh] animate-pulse bg-white dark:bg-gray-900" />,
+});
 
-const ProfessionalWhyChooseUs = dynamic(
-  () => import("../components/sections/ProfessionalWhyChooseUs.jsx"),
-  {
-    loading: () => <div className="min-h-[50vh] animate-pulse bg-gray-50 dark:bg-gray-800" />,
-  }
-);
+const ProfessionalWhyChooseUs = dynamic(() => import("@/components/home/WhyChooseUs"), {
+  loading: () => <div className="min-h-[50vh] animate-pulse bg-gray-50 dark:bg-gray-800" />,
+});
 
-const CodematixCTA = dynamic(() => import("../components/ui/CodematixCTA"), {
+const CodematixCTA = dynamic(() => import("@/components/shared/ui/CodematixCTA"), {
   loading: () => <div className="min-h-[40vh] animate-pulse bg-primary-900" />,
 });
 

@@ -1,0 +1,62 @@
+/* Projects Showcase Section */
+
+.section {
+  @apply relative overflow-hidden pt-16;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-6;
+}
+
+.header {
+  @apply mb-16 text-center;
+}
+
+.sectionTitle {
+  @apply mb-4 text-4xl font-black text-slate-800 dark:text-white md:text-5xl;
+}
+
+.sectionSubtitle {
+  @apply mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300;
+}
+
+.grid {
+  display: grid;
+  @apply gap-8 md:grid-cols-2 lg:grid-cols-3;
+}
+
+.categoryCard {
+  @apply relative overflow-hidden rounded-3xl p-8 transition-all duration-500;
+}
+
+.categoryIcon {
+  @apply mb-6 flex h-14 w-14 items-center justify-center rounded-2xl;
+}
+
+.categoryTitle {
+  @apply mb-3 text-xl font-black;
+}
+
+.categoryDesc {
+  @apply text-sm leading-relaxed opacity-80;
+}
+
+.statsPanel {
+  @apply mt-16 overflow-hidden rounded-3xl border p-8;
+}
+
+.statsGrid {
+  @apply grid gap-8 sm:grid-cols-2 md:grid-cols-4;
+}
+
+.statCard {
+  @apply text-center;
+}
+
+.statValue {
+  @apply text-4xl font-black text-blue-700 dark:text-blue-400;
+}
+
+.statLabel {
+  @apply text-sm text-slate-600 dark:text-slate-300;
+}

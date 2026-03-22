@@ -1,0 +1,29 @@
+/* Error Components */
+
+.boundary {
+  @apply flex min-h-[50vh] items-center justify-center p-8;
+}
+
+.boundaryInner {
+  @apply text-center;
+}
+
+.message {
+  @apply rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 dark:border-red-800 dark:bg-red-900/20 dark:text-red-400;
+}
+
+.notFound {
+  @apply flex min-h-[60vh] items-center justify-center text-center;
+}
+
+.notFoundTitle {
+  @apply text-6xl font-black text-slate-800 dark:text-white;
+}
+
+.notFoundDesc {
+  @apply mt-4 text-lg text-slate-600 dark:text-slate-300;
+}
+
+.notFoundLink {
+  @apply mt-8 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:bg-blue-700;
+}

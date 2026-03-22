@@ -1,19 +1,19 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
-import { CodematixCTA } from "../components/ui";
+import { CodematixCTA } from "@/components/shared/ui";
 
-const ProjectsHero = dynamic(() => import("../components/sections/ProjectHer"), {
+const ProjectsHero = dynamic(() => import("@/components/projects/Hero"), {
   loading: () => (
     <div className="h-screen animate-pulse bg-gradient-to-br from-primary-50 to-accent-50 dark:from-gray-900 dark:to-gray-800" />
   ),
 });
 
-const ProjectsShowcase = dynamic(() => import("../components/sections/ProjectsShowcase"), {
+const ProjectsShowcase = dynamic(() => import("@/components/projects/Showcase"), {
   loading: () => <div className="h-96 animate-pulse bg-gray-100 dark:bg-gray-800" />,
 });
 
-const ProjectCarousel = dynamic(() => import("../components/sections/ProjectCarousel"), {
+const ProjectCarousel = dynamic(() => import("@/components/projects/Carousel"), {
   loading: () => (
     <div className="py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6">
@@ -33,7 +33,7 @@ const ProjectCarousel = dynamic(() => import("../components/sections/ProjectCaro
 });
 
 const ProfessionalWhyChooseUs = dynamic(
-  () => import("../components/sections/ProfessionalWhyChooseUs"),
+  () => import("@/components/home/WhyChooseUs"),
   {
     loading: () => (
       <div className="h-96 animate-pulse bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-gray-800 dark:to-gray-900" />

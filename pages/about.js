@@ -2,27 +2,27 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
-const AboutHero = dynamic(() => import("../components/sections/AboutHero"), {
+const AboutHero = dynamic(() => import("@/components/about/Hero"), {
   loading: () => (
     <div className="min-h-screen animate-pulse bg-gradient-to-br from-primary-50 via-white to-accent-50" />
   ),
 });
 
-const BrandStory = dynamic(() => import("../components/sections/BrandStory"), {
+const BrandStory = dynamic(() => import("@/components/about/BrandStory"), {
   loading: () => (
     <div className="min-h-[60vh] animate-pulse bg-gradient-to-br from-gray-50/50 via-primary-50/30 to-accent-50/20" />
   ),
 });
 
-const MissionandVision = dynamic(() => import("../components/sections/Mission&Vision"), {
+const MissionandVision = dynamic(() => import("@/components/about/MissionVision"), {
   loading: () => <div className="min-h-[70vh] animate-pulse bg-white" />,
 });
 
-const TeamOverview = dynamic(() => import("../components/sections/TeamOverview"), {
+const TeamOverview = dynamic(() => import("@/components/about/TeamOverview"), {
   loading: () => <div className="min-h-[60vh] animate-pulse bg-gray-50" />,
 });
 
-const CodematixCTA = dynamic(() => import("../components/ui/CodematixCTA"), {
+const CodematixCTA = dynamic(() => import("@/components/shared/ui/CodematixCTA"), {
   loading: () => <div className="min-h-[40vh] animate-pulse bg-primary-900" />,
 });
 

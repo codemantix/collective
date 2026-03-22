@@ -1,9 +1,9 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
-import { CodematixCTA } from "../components/ui";
+import { CodematixCTA } from "@/components/shared/ui";
 
-const TeamHero = dynamic(() => import("../components/sections/TeamHero"), {
+const TeamHero = dynamic(() => import("@/components/team/Hero"), {
   loading: () => (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="container mx-auto px-4 py-16 sm:px-6 sm:py-24">
@@ -25,7 +25,7 @@ const TeamHero = dynamic(() => import("../components/sections/TeamHero"), {
   ),
 });
 
-const TeamGrid = dynamic(() => import("../components/sections/TeamGrid"), {
+const TeamGrid = dynamic(() => import("@/components/team/Grid"), {
   loading: () => (
     <div className="bg-white py-16 dark:bg-gray-900 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6">
@@ -49,7 +49,7 @@ const TeamGrid = dynamic(() => import("../components/sections/TeamGrid"), {
   ),
 });
 
-const TeamValues = dynamic(() => import("../components/sections/TeamValues"), {
+const TeamValues = dynamic(() => import("@/components/team/Values"), {
   loading: () => (
     <div className="bg-gradient-to-br from-gray-50 to-white py-16 dark:from-gray-800 dark:to-gray-900 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6">

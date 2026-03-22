@@ -1,0 +1,79 @@
+/* Professional Footer */
+
+.footer {
+  @apply relative overflow-hidden;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-6;
+}
+
+.topSection {
+  @apply grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4;
+}
+
+.brandCol {
+  @apply space-y-6 lg:col-span-1;
+}
+
+.brandDesc {
+  @apply max-w-xs text-sm leading-relaxed opacity-70;
+}
+
+.socialLinks {
+  @apply flex gap-3;
+}
+
+.socialBtn {
+  @apply flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all duration-300 hover:bg-white/10;
+}
+
+.linkCol {
+  @apply space-y-4;
+}
+
+.linkColTitle {
+  @apply text-xs font-bold uppercase tracking-[0.2em];
+}
+
+.linkList {
+  @apply space-y-3;
+}
+
+.footerLink {
+  @apply flex items-center gap-2 text-sm opacity-70 transition-all duration-300 hover:opacity-100;
+}
+
+/* Newsletter */
+.newsletterForm {
+  @apply flex gap-2;
+}
+
+.newsletterInput {
+  @apply flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:border-blue-500 focus:outline-none;
+}
+
+.newsletterBtn {
+  @apply rounded-xl px-4 py-2.5 text-sm font-bold text-white transition-all duration-300;
+}
+
+/* Bottom bar */
+.bottomBar {
+  @apply flex flex-col items-center justify-between gap-4 border-t border-white/10 py-6 md:flex-row;
+}
+
+.copyright {
+  @apply text-xs opacity-50;
+}
+
+.statusChips {
+  @apply flex items-center gap-4;
+}
+
+.statusChip {
+  @apply flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium;
+}
+
+.statusDot {
+  @apply h-1.5 w-1.5 rounded-full bg-green-400;
+}

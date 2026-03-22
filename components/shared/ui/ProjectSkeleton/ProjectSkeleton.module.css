@@ -1,0 +1,22 @@
+/* Project Skeleton */
+
+.card {
+  @apply relative overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-white/90 to-white/60 shadow-xl backdrop-blur-xl dark:border-gray-700/20 dark:from-gray-800/90 dark:to-gray-800/60;
+}
+
+.imageSkeleton {
+  @apply h-full w-full bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700;
+}
+
+.content {
+  @apply space-y-4 p-6;
+}
+
+.skeletonLine {
+  @apply rounded animate-pulse bg-gray-200 dark:bg-gray-700;
+}
+
+.grid {
+  display: grid;
+  @apply gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+}

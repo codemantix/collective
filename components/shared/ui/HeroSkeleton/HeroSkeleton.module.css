@@ -1,0 +1,30 @@
+/* Hero Skeleton Loader */
+
+.skeleton {
+  @apply relative min-h-screen overflow-hidden;
+}
+
+.bg {
+  @apply absolute inset-0 animate-pulse;
+}
+
+.container {
+  @apply relative z-10 mx-auto max-w-7xl px-6 py-32;
+}
+
+.grid {
+  display: grid;
+  @apply items-center gap-12 lg:grid-cols-2;
+}
+
+.line {
+  @apply h-4 rounded animate-pulse;
+}
+
+.lineSm {
+  @apply h-3 rounded animate-pulse;
+}
+
+.block {
+  @apply rounded-2xl animate-pulse;
+}

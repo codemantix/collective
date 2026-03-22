@@ -1,0 +1,77 @@
+/* Mission & Vision Section — About Page */
+
+.section {
+  @apply relative overflow-hidden py-24;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-6;
+}
+
+.header {
+  @apply mb-16 text-center;
+}
+
+.sectionTitle {
+  @apply mb-4 text-4xl font-black text-slate-800 dark:text-white md:text-5xl;
+}
+
+.sectionSubtitle {
+  @apply mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300;
+}
+
+.tabRow {
+  @apply mb-12 flex justify-center gap-4;
+}
+
+.tabBtn {
+  @apply rounded-xl px-8 py-3 text-sm font-bold transition-all duration-300;
+}
+
+.tabBtnActive {
+  @apply text-white;
+}
+
+.tabBtnInactive {
+  @apply bg-gray-100 text-slate-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-slate-300;
+}
+
+.panel {
+  @apply relative overflow-hidden rounded-3xl border p-10 transition-all duration-500;
+}
+
+.panelTitle {
+  @apply mb-4 text-3xl font-black;
+}
+
+.panelDesc {
+  @apply mb-8 max-w-2xl text-lg leading-relaxed;
+}
+
+.valuesGrid {
+  @apply mt-16 grid gap-4 sm:grid-cols-2 md:grid-cols-4;
+}
+
+.valueCard {
+  @apply rounded-2xl border bg-white p-5 text-center transition-all duration-300 dark:bg-gray-800;
+}
+
+.valueTitle {
+  @apply text-sm font-bold text-slate-800 dark:text-white;
+}
+
+.statsRow {
+  @apply mt-16 grid gap-6 sm:grid-cols-2 md:grid-cols-4;
+}
+
+.statCard {
+  @apply rounded-2xl border bg-white p-6 text-center dark:bg-gray-800;
+}
+
+.statValue {
+  @apply text-3xl font-black text-blue-700 dark:text-blue-400;
+}
+
+.statLabel {
+  @apply text-sm text-slate-600 dark:text-slate-300;
+}

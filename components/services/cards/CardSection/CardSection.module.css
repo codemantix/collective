@@ -1,0 +1,26 @@
+/* Service Card Section Wrapper */
+
+.section {
+  @apply relative overflow-hidden py-20;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-6;
+}
+
+.header {
+  @apply mb-14 text-center;
+}
+
+.sectionTitle {
+  @apply mb-3 text-3xl font-black md:text-4xl;
+}
+
+.sectionDesc {
+  @apply mx-auto max-w-2xl text-base leading-relaxed;
+}
+
+.grid {
+  display: grid;
+  @apply gap-6 md:grid-cols-2 lg:grid-cols-3;
+}

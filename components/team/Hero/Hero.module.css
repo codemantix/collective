@@ -1,0 +1,57 @@
+/* Team Hero Section */
+
+.section {
+  @apply relative min-h-[70vh] overflow-hidden;
+}
+
+.container {
+  @apply relative z-10 mx-auto max-w-7xl px-6 py-24 pt-10;
+}
+
+.badge {
+  @apply mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-sm;
+}
+
+.badgeDot {
+  @apply h-2 w-2 animate-led-pulse rounded-full bg-orange-400;
+}
+
+.heading {
+  @apply mb-6 text-5xl font-black text-white md:text-6xl;
+}
+
+.subtext {
+  @apply mb-10 max-w-2xl text-xl leading-relaxed text-blue-100;
+}
+
+.statsGrid {
+  @apply mb-12 grid grid-cols-2 gap-4 sm:grid-cols-4;
+}
+
+.statCard {
+  @apply rounded-xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur-sm;
+}
+
+.statValue {
+  @apply text-3xl font-black text-white;
+}
+
+.statLabel {
+  @apply text-xs font-bold uppercase tracking-wider text-blue-200;
+}
+
+.rolesGrid {
+  @apply grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+}
+
+.roleCard {
+  @apply rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center backdrop-blur-sm;
+}
+
+.roleName {
+  @apply text-sm font-bold text-white;
+}
+
+.roleCount {
+  @apply text-xs text-blue-200;
+}

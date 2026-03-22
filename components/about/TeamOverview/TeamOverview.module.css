@@ -1,0 +1,75 @@
+/* Team Overview Section — About Page */
+
+.section {
+  @apply relative overflow-hidden py-24;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-6;
+}
+
+.inner {
+  @apply grid items-center gap-16 lg:grid-cols-2;
+}
+
+.leftCol {
+  @apply space-y-8;
+}
+
+.sectionBadge {
+  @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.18em];
+}
+
+.sectionTitle {
+  @apply text-4xl font-black text-slate-800 dark:text-white md:text-5xl;
+}
+
+.sectionSubtitle {
+  @apply max-w-xl text-lg text-slate-600 dark:text-slate-300;
+}
+
+.grid {
+  display: grid;
+  @apply gap-4 sm:grid-cols-2;
+}
+
+.specCard {
+  @apply rounded-2xl border p-5 transition-all duration-300;
+}
+
+.specIcon {
+  @apply mb-3 flex h-10 w-10 items-center justify-center rounded-xl;
+}
+
+.specTitle {
+  @apply text-sm font-bold text-slate-800 dark:text-white;
+}
+
+.specDesc {
+  @apply text-xs text-slate-600 dark:text-slate-300;
+}
+
+.ctaRow {
+  @apply flex flex-col gap-4 sm:flex-row;
+}
+
+/* Right column */
+.rightCol {
+  @apply relative;
+}
+
+.statsOverlay {
+  @apply absolute -bottom-4 -right-4 rounded-2xl border bg-white p-6 shadow-xl dark:bg-gray-800;
+}
+
+.statsGrid {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.statValue {
+  @apply text-2xl font-black text-blue-700 dark:text-blue-400;
+}
+
+.statLabel {
+  @apply text-xs text-slate-500 dark:text-slate-400;
+}

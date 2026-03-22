@@ -1,0 +1,57 @@
+/* Projects Hero Section */
+
+.section {
+  @apply relative  overflow-hidden;
+}
+
+.container {
+  @apply relative z-10 mx-auto max-w-7xl px-6;
+}
+
+.inner {
+  @apply grid  gap-16 py-16 lg:grid-cols-2;
+}
+
+.leftCol {
+  @apply space-y-8;
+}
+
+.badge {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-sm;
+}
+
+.heading {
+  @apply text-5xl font-black text-white md:text-6xl;
+}
+
+.subtext {
+  @apply max-w-xl text-lg leading-relaxed text-blue-100;
+}
+
+.ctaRow {
+  @apply flex flex-col gap-4 sm:flex-row;
+}
+
+.statsGrid {
+  @apply grid grid-cols-2 gap-4 md:grid-cols-4;
+}
+
+.statCard {
+  @apply rounded-xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur-sm;
+}
+
+.statValue {
+  @apply text-2xl font-black text-white;
+}
+
+.statLabel {
+  @apply text-xs font-bold uppercase tracking-wider text-blue-200;
+}
+
+.rightCol {
+  @apply space-y-4;
+}
+
+.featuredPanel {
+  @apply relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm;
+}

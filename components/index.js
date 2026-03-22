@@ -1,23 +1,22 @@
-// Professional Component Organization Structure
-// Export all components from their organized folders
+// Component barrel — page-specific and shared folders
 
-// Layout Components
-export * from "./layout";
+// Shared (layout, ui, seo, providers, data)
+export * from "./shared";
 
-// Section Components
-export * from "./sections";
+// Home page components
+export * from "./home";
 
-// Form Components
-export * from "./forms";
+// About page components
+export * from "./about";
 
-// Card Components
-export * from "./cards";
+// Services page components
+export * from "./services";
 
-// Data Components
-export * from "./data";
+// Projects page components
+export * from "./projects";
 
-// Provider Components
-export * from "./providers";
+// Team page components
+export * from "./team";
 
-// UI Components
-export * from "./ui";
+// Contact page components
+export * from "./contact";

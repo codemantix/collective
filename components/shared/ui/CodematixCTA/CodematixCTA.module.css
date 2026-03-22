@@ -1,0 +1,49 @@
+/* CodematixCTA — Shared CTA Section */
+
+.section {
+  @apply relative overflow-hidden py-20;
+}
+
+.container {
+  @apply relative z-10 mx-auto max-w-4xl px-6 text-center;
+}
+
+.badge {
+  @apply mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-sm;
+}
+
+.heading {
+  @apply mb-4 text-2xl font-black text-white md:text-3xl;
+}
+
+.subtext {
+  @apply mb-10 mx-auto max-w-2xl text-lg leading-relaxed text-blue-100;
+}
+
+.btnRow {
+  @apply flex flex-col items-center justify-center gap-4 sm:flex-row;
+}
+
+.btnPrimary {
+  @apply inline-flex items-center gap-2 rounded-xl px-8 py-4 text-sm font-black text-primary-900 transition-all duration-300 hover:scale-105;
+}
+
+.btnSecondary {
+  @apply inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20;
+}
+
+.statsRow {
+  @apply mt-12 flex flex-wrap items-center justify-center gap-8;
+}
+
+.statItem {
+  @apply text-center;
+}
+
+.statValue {
+  @apply text-2xl font-black text-white;
+}
+
+.statLabel {
+  @apply text-xs font-bold uppercase tracking-wider text-blue-200;
+}

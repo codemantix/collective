@@ -1,7 +1,7 @@
 import Head from "next/head";
-import ContactHero from "../components/sections/ContactHero";
-import ContactPage from "../components/forms/Contactpage";
-import { CodematixCTA } from "../components/ui";
+import ContactHero from "@/components/contact/Hero";
+import ContactPage from "@/components/contact/Form";
+import { CodematixCTA } from "@/components/shared/ui";
 
 export default function Contact() {
   return (

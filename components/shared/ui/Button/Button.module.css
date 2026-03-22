@@ -1,0 +1,29 @@
+/* Button Component */
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btnPrimary {
+  @apply bg-primary-900 text-white hover:bg-primary-800 focus:ring-primary-500;
+}
+
+.btnSecondary {
+  @apply bg-secondary-500 text-white hover:bg-secondary-400 focus:ring-secondary-400;
+}
+
+.btnGhost {
+  @apply border border-current bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800;
+}
+
+.btnSm {
+  @apply px-4 py-2 text-xs;
+}
+
+.btnLg {
+  @apply px-8 py-4 text-base;
+}
+
+.btnDisabled {
+  @apply cursor-not-allowed opacity-50;
+}

@@ -113,14 +113,32 @@ module.exports = {
         "9xl": "96rem",
       },
       boxShadow: {
-        sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+        /* ── Neumorphic Light Surface ── */
+        "neu-raised":    "5px 5px 10px rgba(0,0,0,0.13), -5px -5px 10px rgba(255,255,255,0.88)",
+        "neu-raised-sm": "3px 3px 6px rgba(0,0,0,0.11), -3px -3px 6px rgba(255,255,255,0.85)",
+        "neu-raised-lg": "8px 8px 18px rgba(0,0,0,0.14), -8px -8px 18px rgba(255,255,255,0.9)",
+        "neu-pressed":   "inset 4px 4px 8px rgba(0,0,0,0.13), inset -4px -4px 8px rgba(255,255,255,0.75)",
+        "neu-inset":     "inset 2px 2px 5px rgba(0,0,0,0.10), inset -2px -2px 5px rgba(255,255,255,0.7)",
+        /* ── Blue Panel Shadows ── */
+        "blue-raised":   "5px 5px 12px rgba(0,0,0,0.42), -3px -3px 8px rgba(255,255,255,0.06)",
+        "blue-pressed":  "inset 4px 4px 10px rgba(0,0,0,0.48), inset -3px -3px 7px rgba(255,255,255,0.04)",
+        /* ── Tactile Button Bases ── */
+        "btn-blue":    "0 4px 0 #0e1f4a, 5px 5px 12px rgba(0,0,0,0.42), -3px -3px 8px rgba(255,255,255,0.06)",
+        "btn-orange":  "0 4px 0 #c2520c, 3px 3px 8px rgba(0,0,0,0.18), -2px -2px 6px rgba(255,255,255,0.7)",
+        "btn-white":   "0 4px 0 rgba(0,0,0,0.15), 5px 5px 10px rgba(0,0,0,0.13), -5px -5px 10px rgba(255,255,255,0.88)",
+        /* ── LED Glow ── */
+        "led-orange":  "0 0 4px #f97316, 0 0 12px rgba(249,115,22,0.65), 0 0 24px rgba(249,115,22,0.25)",
+        "led-blue":    "0 0 4px #60a5fa, 0 0 12px rgba(96,165,250,0.6)",
+        "led-green":   "0 0 4px #10b981, 0 0 12px rgba(16,185,129,0.55)",
+        /* ── Legacy ── */
+        sm:    "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
         DEFAULT: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-        md: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-        lg: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-        xl: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        md:    "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        lg:    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        xl:    "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
         "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
         inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
-        glow: "0 0 20px rgba(59, 130, 246, 0.15)",
+        glow:  "0 0 20px rgba(59, 130, 246, 0.15)",
         "glow-lg": "0 0 40px rgba(59, 130, 246, 0.15)",
       },
       backdropBlur: {
@@ -141,6 +159,9 @@ module.exports = {
         float: "float 6s ease-in-out infinite",
         "pulse-soft": "pulse 2s ease-in-out infinite",
         "bounce-gentle": "bounceGentle 2s ease-in-out infinite",
+        "led-blink": "ledBlink 1.2s ease-in-out infinite",
+        "led-pulse": "ledPulse 2s ease-in-out infinite",
+        "press-in": "pressIn 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
       },
       keyframes: {
         fadeIn: {
@@ -170,6 +191,19 @@ module.exports = {
         bounceGentle: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
+        },
+        ledBlink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.2" },
+        },
+        ledPulse: {
+          "0%, 100%": { boxShadow: "0 0 4px #f97316, 0 0 12px rgba(249,115,22,0.65)" },
+          "50%": { boxShadow: "0 0 6px #f97316, 0 0 20px rgba(249,115,22,0.9), 0 0 40px rgba(249,115,22,0.4)" },
+        },
+        pressIn: {
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(3px)" },
+          "100%": { transform: "translateY(0)" },
         },
       },
       transitionTimingFunction: {

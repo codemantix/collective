@@ -1,0 +1,67 @@
+/* Why Choose Us — Home / Projects Pages */
+
+.section {
+  @apply relative overflow-hidden py-24;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-6;
+}
+
+.inner {
+  @apply grid items-start gap-16 lg:grid-cols-2;
+}
+
+/* Left column */
+.leftCol {
+  @apply space-y-8;
+}
+
+.sectionBadge {
+  @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.18em];
+}
+
+.sectionTitle {
+  @apply text-4xl font-black text-slate-800 dark:text-white md:text-5xl;
+}
+
+.sectionSubtitle {
+  @apply max-w-xl text-lg text-slate-600 dark:text-slate-300;
+}
+
+.checkList {
+  @apply space-y-3;
+}
+
+.checkItem {
+  @apply flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300;
+}
+
+.checkDot {
+  @apply flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-orange-500;
+}
+
+/* Right column */
+.rightCol {
+  @apply grid gap-4 sm:grid-cols-2;
+}
+
+.reasonCard {
+  @apply relative overflow-hidden rounded-2xl p-6 transition-all duration-300;
+}
+
+.moduleId {
+  @apply mb-2 text-[10px] font-mono font-bold uppercase tracking-widest opacity-50;
+}
+
+.reasonTitle {
+  @apply mb-1 text-base font-bold text-slate-800 dark:text-white;
+}
+
+.reasonDesc {
+  @apply text-sm leading-relaxed text-slate-600 dark:text-slate-300;
+}
+
+.led {
+  @apply absolute right-4 top-4 h-2 w-2 rounded-full bg-orange-500 animate-led-pulse;
+}

@@ -1,0 +1,46 @@
+/* Contact Hero Section */
+
+.section {
+  @apply relative overflow-hidden py-32 pt-10;
+}
+
+.container {
+  @apply relative z-10 mx-auto max-w-7xl px-6;
+}
+
+.badge {
+  @apply mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-sm;
+}
+
+.heading {
+  @apply mb-6 text-5xl font-black text-white md:text-6xl;
+}
+
+.subtext {
+  @apply mb-12 max-w-2xl text-xl leading-relaxed text-blue-100;
+}
+
+.grid {
+  display: grid;
+  @apply gap-6 sm:grid-cols-2 lg:grid-cols-4;
+}
+
+.contactCard {
+  @apply relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10;
+}
+
+.contactCardIcon {
+  @apply mb-4 flex h-12 w-12 items-center justify-center rounded-xl;
+}
+
+.contactCardLabel {
+  @apply mb-1 text-xs font-bold uppercase tracking-widest text-blue-300;
+}
+
+.contactCardValue {
+  @apply text-base font-bold text-white;
+}
+
+.contactCardSub {
+  @apply mt-1 text-xs text-blue-200;
+}

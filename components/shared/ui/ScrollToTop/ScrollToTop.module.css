@@ -1,0 +1,17 @@
+/* ScrollToTop Button */
+
+.btn {
+  @apply fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-lg focus:outline-none;
+}
+
+.gridTexture {
+  @apply absolute inset-0 rounded-lg opacity-[0.06];
+}
+
+.led {
+  @apply absolute -top-1 left-1/2 -translate-x-1/2 h-1.5 w-1.5 rounded-full bg-orange-500 animate-led-pulse;
+}
+
+.icon {
+  @apply relative text-blue-200;
+}

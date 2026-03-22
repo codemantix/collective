@@ -1,0 +1,29 @@
+/* Loading Components */
+
+.spinnerWrap {
+  @apply flex items-center justify-center;
+}
+
+.spinner {
+  @apply rounded-full border-2 border-t-transparent animate-spin;
+}
+
+.dotsWrap {
+  @apply flex items-center space-x-1;
+}
+
+.dot {
+  @apply h-2 w-2 rounded-full;
+}
+
+.screen {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-white/80 backdrop-blur-sm dark:bg-slate-900/80;
+}
+
+.screenInner {
+  @apply space-y-4 text-center;
+}
+
+.screenMessage {
+  @apply text-lg font-medium text-gray-700 dark:text-gray-300;
+}

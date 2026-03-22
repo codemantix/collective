@@ -1,0 +1,75 @@
+/* Project Carousel Section */
+
+.section {
+  @apply relative overflow-hidden py-24;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-6;
+}
+
+.header {
+  @apply mb-12 text-center;
+}
+
+.sectionTitle {
+  @apply mb-4 text-4xl font-black text-slate-800 dark:text-white md:text-5xl;
+}
+
+.sectionSubtitle {
+  @apply mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300;
+}
+
+/* Filter tabs */
+.filterRow {
+  @apply mb-10 flex flex-wrap justify-center gap-3;
+}
+
+.filterBtn {
+  @apply rounded-xl px-5 py-2.5 text-sm font-bold transition-all duration-300;
+}
+
+.filterBtnActive {
+  @apply text-white;
+}
+
+.filterBtnInactive {
+  @apply bg-gray-100 text-slate-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-slate-300;
+}
+
+/* Project card */
+.projectCard {
+  @apply relative overflow-hidden rounded-3xl;
+}
+
+.projectImageWrap {
+  @apply relative overflow-hidden;
+}
+
+.projectOverlay {
+  @apply absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent p-6 opacity-0 transition-all duration-300 group-hover:opacity-100;
+}
+
+.projectTitle {
+  @apply mb-1 text-lg font-black text-white;
+}
+
+.projectCategory {
+  @apply text-sm text-blue-200;
+}
+
+.techStack {
+  @apply mt-3 flex flex-wrap gap-2;
+}
+
+.techChip {
+  @apply rounded-full border border-white/20 bg-white/10 px-2 py-0.5 text-xs text-white backdrop-blur-sm;
+}
+
+.metaRow {
+  @apply flex items-center gap-3 text-xs text-blue-200;
+}
+
+.metaItem {
+  @apply flex items-center gap-1;
+}
