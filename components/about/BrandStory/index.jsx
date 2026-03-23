@@ -100,7 +100,7 @@ export default function BrandStory() {
 
           <motion.p
             variants={itemVariants}
-            className="mx-auto max-w-2xl text-lg text-slate-600"
+            className="mx-auto max-w-2xl text-lg mobile:text-sm text-slate-600"
           >
             From a bold vision to a thriving collective, discover how we're transforming the digital
             landscape one innovative solution at a time.
@@ -147,14 +147,14 @@ export default function BrandStory() {
 
               {/* Icon */}
               <div
-                className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl"
+                className="mb-6 flex h-14 w-14 mobile:h-10 mobile:w-10 items-center justify-center rounded-xl"
                 style={{
                   background: "linear-gradient(175deg, #2563eb, #1e3a8a)",
                   boxShadow: "0 4px 0 #0e1f4a, 3px 3px 8px rgba(0,0,0,0.2)",
                   border: "1px solid #1a4a9e",
                 }}
               >
-                <div className="text-white [&>svg]:h-7 [&>svg]:w-7">{item.icon}</div>
+                <div className="text-white [&>svg]:h-7 [&>svg]:w-7 mobile:[&>svg]:h-5 mobile:[&>svg]:w-5">{item.icon}</div>
               </div>
 
               {/* Module ID */}

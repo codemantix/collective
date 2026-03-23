@@ -171,7 +171,7 @@ export default function MissionVisionValues() {
             </span>
           </motion.h2>
 
-          <motion.p variants={itemVariants} className="mx-auto max-w-2xl text-lg text-slate-600">
+          <motion.p variants={itemVariants} className="mx-auto max-w-2xl text-lg mobile:text-sm text-slate-600">
             Our purpose and aspirations guide every decision we make, every solution we create, and
             every relationship we build in this digital transformation journey.
           </motion.p>
@@ -234,7 +234,7 @@ export default function MissionVisionValues() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: index * 0.1 }}
                 onClick={() => setActiveCard(index)}
-                className="group relative cursor-pointer overflow-hidden rounded-2xl p-8"
+                className="group relative cursor-pointer overflow-hidden rounded-2xl p-8 mobile:p-4"
                 style={{
                   background: "linear-gradient(175deg, #0e1f4a 0%, #0a1533 55%, #060e26 100%)",
                   border: isActive
@@ -276,14 +276,14 @@ export default function MissionVisionValues() {
                   {/* Icon + Module ID */}
                   <div className="flex-shrink-0">
                     <div
-                      className="mb-3 flex h-20 w-20 items-center justify-center rounded-2xl"
+                      className="mb-3 flex h-20 w-20 mobile:h-16 mobile:w-16 items-center justify-center rounded-2xl"
                       style={{
                         background: "linear-gradient(175deg, #2563eb, #1e3a8a)",
                         boxShadow: "0 6px 0 #060e26, 4px 4px 16px rgba(0,0,0,0.4)",
                         border: "1px solid #1a4a9e",
                       }}
                     >
-                      <Icon className="h-10 w-10 text-white" />
+                      <Icon className="h-10 w-10 mobile:h-8 mobile:w-8 text-white" />
                     </div>
                     <div
                       className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500"

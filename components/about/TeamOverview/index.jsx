@@ -103,7 +103,7 @@ export default function TeamOverview() {
               </span>
             </motion.h2>
 
-            <motion.p variants={itemVariants} className="mb-8 max-w-xl text-base leading-relaxed text-slate-600">
+            <motion.p variants={itemVariants} className="mb-8 max-w-xl text-base mobile:text-sm leading-relaxed text-slate-600">
               At Codemantix Collective, our team is a fusion of creativity, strategy, and technical
               excellence. We unite designers, developers, and analysts under one vision: to craft
               innovative digital solutions that empower businesses and inspire users.

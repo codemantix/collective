@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Menu, X, Moon, Sun, ArrowUpRight, Phone, Mail } from "lucide-react";
+import { Menu, X, ArrowUpRight, Phone, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useTheme } from "next-themes";
 import { navLinks } from "@/components/shared/ui/Navlinks";
 import { motion, AnimatePresence } from "framer-motion";
 import SearchToggle from "@/components/shared/ui/SearchToggle";
@@ -17,7 +16,6 @@ const ProfessionalNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { pathname } = useRouter();
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => { setMounted(true); }, []);
 
@@ -41,11 +39,9 @@ const ProfessionalNavbar = () => {
   const closeSidebar = useCallback(() => setIsSidebarOpen(false), []);
   const isActiveLink = (href) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
-  // Blue nav adapts slightly when in dark mode — even deeper
-  const isDark = mounted && theme === "dark";
   const navBg = isScrolled
-    ? isDark ? "linear-gradient(180deg, #0a1533 0%, #060e26 100%)" : "linear-gradient(180deg, #1e3a8a 0%, #162d72 100%)"
-    : isDark ? "linear-gradient(180deg, #0e1f4a 0%, #091229 100%)" : "linear-gradient(180deg, #1e3a8a 0%, #1a3278 100%)";
+    ? "linear-gradient(180deg, #1e3a8a 0%, #162d72 100%)"
+    : "linear-gradient(180deg, #1e3a8a 0%, #1a3278 100%)";
 
   const screwStyle = {
     background: "radial-gradient(circle at 38% 38%, #6b7fa0 0%, #3a4560 55%, #1a2040 100%)",
@@ -230,25 +226,6 @@ const ProfessionalNavbar = () => {
                 <SearchToggle />
               </div>
 
-              {/* Theme knob — adapted for dark/blue bg */}
-              <motion.button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full transition-all duration-150"
-                style={{
-                  background: "rgba(255,255,255,0.08)",
-                  boxShadow: "inset 2px 2px 4px rgba(0,0,0,0.3), inset -2px -2px 4px rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.12)",
-                  opacity: mounted ? 1 : 0,
-                  color: "#b8d4ff",
-                }}
-                whileHover={{ scale: 1.05, background: "rgba(255,255,255,0.14)" }}
-                whileTap={{ scale: 0.93 }}
-                aria-label="Toggle theme"
-              >
-                {mounted && (theme === "dark" ? <Sun size={16} /> : <Moon size={16} />)}
-                {!mounted && <div className="h-4 w-4" />}
-              </motion.button>
-
               {/* CTA — Tactile Orange Button */}
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }} className="flex-shrink-0">
                 <Link
@@ -263,23 +240,6 @@ const ProfessionalNavbar = () => {
 
             {/* Mobile controls */}
             <div className="flex items-center gap-2 lg:hidden">
-              <motion.button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="flex h-9 w-9 items-center justify-center rounded-full"
-                style={{
-                  background: "rgba(255,255,255,0.08)",
-                  boxShadow: "inset 2px 2px 4px rgba(0,0,0,0.3)",
-                  border: "1px solid rgba(255,255,255,0.12)",
-                  opacity: mounted ? 1 : 0,
-                  color: "#b8d4ff",
-                }}
-                whileTap={{ scale: 0.93 }}
-                aria-label="Toggle theme"
-              >
-                {mounted && (theme === "dark" ? <Sun size={15} /> : <Moon size={15} />)}
-                {!mounted && <div className="h-4 w-4" />}
-              </motion.button>
-
               <motion.button
                 onClick={toggleSidebar}
                 className="rounded-lg p-2 text-blue-100 transition-all duration-150"

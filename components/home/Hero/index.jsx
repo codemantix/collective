@@ -53,10 +53,10 @@ const techServices = [
 ];
 
 const companyStats = [
-  { label: "Projects Delivered", value: "60+", icon: CheckCircleIcon },
-  { label: "Happy Clients", value: "50+", icon: UsersIcon },
+  { label: "Projects Delivered", value: "10+", icon: CheckCircleIcon },
+  { label: "Happy Clients", value: "12+", icon: UsersIcon },
   { label: "Years Experience", value: "3+", icon: ArrowTrendingUpIcon },
-  { label: "Team Members", value: "10+", icon: TrophyIcon },
+  { label: "Team Members", value: "12+", icon: TrophyIcon },
 ];
 
 const trustIndicators = [
@@ -287,7 +287,7 @@ export default function ProfessionalHero() {
             {/* CTA buttons */}
             <motion.div variants={itemVariants} className={styles.ctaRow}>
               <Link href="/contact">
-                <button className="btn-primary flex items-center gap-3 px-8 py-4 text-base">
+                <button className="btn-primary flex items-center gap-3 px-8 py-4 text-base mobile:py-2 mobile:px-6 mobile:text-sm">
                   Start Your Project
                   <motion.span
                     animate={shouldAnimate ? { x: [0, 4, 0] } : {}}
@@ -298,7 +298,7 @@ export default function ProfessionalHero() {
                 </button>
               </Link>
               <Link href="/projects">
-                <button className="btn-secondary flex items-center gap-3 px-8 py-4 text-base">
+                <button className="btn-secondary flex items-center gap-3 px-8 py-4 text-base mobile:text-sm mobile:py-2 mobile:px-6">
                   <PlayIcon className="h-5 w-5" />
                   View Our Work
                 </button>

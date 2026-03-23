@@ -22,7 +22,7 @@
 
 /* Left column */
 .leftCol {
-  @apply space-y-8 text-center mobile:pt-12 lg:text-left;
+  @apply space-y-8  mobile:pt-12 lg:text-left;
 }
 
 .trustBadge {
@@ -34,11 +34,11 @@
 }
 
 .trustBadgeLabel {
-  @apply text-xs font-bold uppercase tracking-[0.15em] text-slate-600;
+  @apply text-xs font-bold uppercase sm:tracking-[0.15em] text-slate-600;
 }
 
 .heading {
-  @apply text-3xl font-black leading-tight md:text-4xl;
+  @apply text-2xl font-black leading-tight md:text-4xl;
 }
 
 .headingLine1 {

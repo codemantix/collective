@@ -5,7 +5,6 @@ import { Toaster } from "react-hot-toast";
 import "../styles/globals.css";
 import ProfessionalNavbar from "@/components/shared/layout/Navbar";
 import ProfessionalFooter from "@/components/shared/layout/Footer";
-import { ThemeProvider } from "@/components/shared/providers/ThemeProvider";
 import ScrollToTop from "@/components/shared/ui/ScrollToTop";
 import {
   OrganizationSchema,
@@ -23,34 +22,27 @@ const inter = Inter({
 export default function App({ Component, pageProps }) {
   return (
     <div className={inter.variable}>
-      <ThemeProvider
-        attribute="data-theme"
-        defaultTheme="light"
-        enableSystem
-        disableTransitionOnChange
-      >
-        <OrganizationSchema />
-        <WebsiteSchema />
-        <ServicesSchema />
-        <ProfessionalNavbar />
-        <main>
-          <Component {...pageProps} />
-        </main>
-        <ProfessionalFooter />
-        <ScrollToTop />
-        <Toaster
-          position="bottom-right"
-          toastOptions={{
-            duration: 4000,
-            style: {
-              background: "var(--bg-primary)",
-              color: "var(--text-primary)",
-            },
-          }}
-        />
-        <Analytics />
-        <SpeedInsights />
-      </ThemeProvider>
+      <OrganizationSchema />
+      <WebsiteSchema />
+      <ServicesSchema />
+      <ProfessionalNavbar />
+      <main>
+        <Component {...pageProps} />
+      </main>
+      <ProfessionalFooter />
+      <ScrollToTop />
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: "var(--bg-primary)",
+            color: "var(--text-primary)",
+          },
+        }}
+      />
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }

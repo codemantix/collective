@@ -133,7 +133,7 @@ export default function ProfessionalWhyChooseUs() {
               </span>
             </div>
 
-            <h2 className="mb-5 text-3xl font-black text-slate-800 md:text-5xl">
+            <h2 className="mb-5 text-2xl font-black text-slate-800 md:text-5xl">
               Your Trusted{" "}
               <span
                 style={{

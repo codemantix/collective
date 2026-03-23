@@ -13,7 +13,7 @@
 }
 
 .container {
-  @apply relative z-10 mx-auto max-w-7xl px-6  py-6 mobile:pt-0;
+  @apply relative z-10 mx-auto max-w-7xl px-6  py-6 ;
 }
 
 .badgeRow {

@@ -1,7 +1,7 @@
 /* Why Choose Us — Home / Projects Pages */
 
 .section {
-  @apply relative overflow-hidden py-24;
+  @apply relative overflow-hidden py-24 mobile:py-8;
 }
 
 .container {
@@ -22,11 +22,11 @@
 }
 
 .sectionTitle {
-  @apply text-4xl font-black text-slate-800 dark:text-white md:text-5xl;
+  @apply text-2xl font-black text-slate-800 dark:text-white md:text-5xl;
 }
 
 .sectionSubtitle {
-  @apply max-w-xl text-lg text-slate-600 dark:text-slate-300;
+  @apply max-w-xl text-lg mobile:text-sm mobile:mb-6 text-slate-600 dark:text-slate-300;
 }
 
 .checkList {

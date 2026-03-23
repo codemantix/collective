@@ -149,7 +149,7 @@ export default function CodematixCTA({
               <motion.button
                 whileHover={{ y: -2 }}
                 whileTap={{ y: 2 }}
-                className="btn-orange flex items-center gap-3 px-10 py-4 text-base"
+                className="btn-orange flex items-center gap-3 px-10 py-4 text-base mobile:text-sm mobile:px-5"
               >
                 <span>{primaryText}</span>
                 <motion.span
