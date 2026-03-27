@@ -99,7 +99,7 @@ export const teamMembers = [
     role: "UI/UX Designer Intern",
     department: "Design",
     location: "Imo, Nigeria",
-    image: "/Images/team/caleb.jpg",
+    image: "/Images/team/caleb.jpeg",
     bio: "Aspiring UI/UX designer with a passion for creating intuitive and visually appealing digital experiences, currently honing skills through hands-on projects and internships.",
     skills: ["Figma", "Adobe Creative Suite", "UI/UX Design", "Branding", "Prototyping"],
     experience: "6 months+",
