@@ -125,7 +125,7 @@ export default function ContactHero() {
         </motion.p>
 
         {/* Contact method cards */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.3 }}
@@ -136,7 +136,7 @@ export default function ContactHero() {
             return (
               <div
                 key={m.label}
-                className="rounded-xl p-5 text-center"
+                className="rounded-xl p-5 text-center break-words"
                 style={{
                   background: "linear-gradient(175deg, #1a2e6b 0%, #0e1f4a 100%)",
                   border: "1px solid rgba(59,130,246,0.2)",
@@ -144,7 +144,7 @@ export default function ContactHero() {
                 }}
               >
                 <div
-                  className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg"
+                  className="mx-auto mb-3  flex h-10 w-10 items-center justify-center rounded-lg"
                   style={{
                     background: "linear-gradient(175deg, #2563eb, #1e3a8a)",
                     boxShadow: "0 3px 0 #0e1f4a",
@@ -154,7 +154,7 @@ export default function ContactHero() {
                   <Icon className="h-5 w-5 text-white" />
                 </div>
                 <div
-                  className="mb-1 text-[10px] font-black uppercase tracking-widest text-blue-400"
+                  className="mb-1 text-[10px] font-black uppercase tracking-widest break-words text-blue-400"
                   style={{ fontFamily: "ui-monospace, 'Fira Code', monospace" }}
                 >
                   {m.label}
@@ -163,7 +163,7 @@ export default function ContactHero() {
               </div>
             );
           })}
-        </motion.div>
+        </motion.div> */}
 
         {/* CTA */}
         <motion.div
